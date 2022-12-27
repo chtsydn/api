@@ -37,9 +37,9 @@ public class CustomerController {
     }
 
     @GetMapping("/getAllOrders")
-    public ResponseEntity<?> getAllOrders(@Param("page") Pageable pageable){
-        Customer customer = new Customer();
-        return ResponseEntity.ok().body(customerService.getAllOrders(customer,pageable));
+    public ResponseEntity<?> getAllOrders(Authentication token,Pageable pageable){
+        Customer customer = customerService.getCustomerInfo(token.getName());
+        return ResponseEntity.ok().body(customerService.getAllOrders(customer.getId(),pageable));
     }
 
 }

@@ -1,9 +1,11 @@
 package com.ReadIsGood.api.model.enity.order;
 
-import com.ReadIsGood.api.model.enity.customer.Customer;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -29,14 +31,13 @@ public class OrderHeader {
             generator = "order_header_sequence"
     )
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+    private Long customer_id;
+    @JsonFormat (pattern = "yyyy-MM-dd HH:mm:ss")
     private Date order_time;
     private BigDecimal order_amount;
     private String order_note;
-    private OrderStatus orderStatus;
-    @OneToMany(mappedBy = "orderHeader")
+    private OrderStatus order_status;
+    @OneToMany(mappedBy = "orderHeader",cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.LAZY)
     private List<OrderLine> orderLines;
 
     @Override

@@ -1,12 +1,12 @@
 package com.ReadIsGood.api.model.enity.order;
 
 import com.ReadIsGood.api.model.enity.product.ProductType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Objects;
 
 @Getter
@@ -29,7 +29,8 @@ public class OrderLine {
     )
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "order_header_id")
+    @JoinColumn(name = "order_header_id",referencedColumnName = "id")
+    @JsonBackReference
     private OrderHeader orderHeader;
     private ProductType productType;
     private Long productId;

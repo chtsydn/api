@@ -5,9 +5,7 @@ import com.ReadIsGood.api.model.enity.order.OrderLine;
 import com.ReadIsGood.api.service.order.OrderHeaderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,13 +21,19 @@ public class OrderController {
     }
 
     @RequestMapping("/createOrder")
-    public ResponseEntity<?> createOrder(@RequestParam OrderHeader orderHeader, @RequestParam List<OrderLine> orderLines){
+    public ResponseEntity<?> createOrder(@RequestBody OrderHeader orderHeader){
         try {
-            orderHeader.setOrderLines(orderLines);
             orderHeaderService.createOrder(orderHeader);
             return ResponseEntity.ok().body("Order success.");
+        }catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
         }catch (Exception e){
             return ResponseEntity.badRequest().body("Order failed.");
         }
+    }
+
+    @GetMapping("/getOrder")
+    public ResponseEntity<?> getOrderById(@RequestParam("id") Long id){
+        return ResponseEntity.ok().body(orderHeaderService.getOrderById(id));
     }
 }

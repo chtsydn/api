@@ -2,16 +2,16 @@ package com.ReadIsGood.api.service.customer;
 
 import com.ReadIsGood.api.model.enity.customer.Customer;
 import com.ReadIsGood.api.model.enity.customer.CustomerLogin;
-import com.ReadIsGood.api.model.enity.order.OrderHeader;
+import com.ReadIsGood.api.model.enity.order.OrderDto;
 import com.ReadIsGood.api.model.repository.customer.CustomerRepository;
 import com.ReadIsGood.api.security.LoginRequest;
 import com.ReadIsGood.api.service.order.OrderHeaderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -60,7 +60,7 @@ public class CustomerService {
         return customerRepository.findByEmail(email);
     }
 
-    public Page<OrderHeader> getAllOrders(Customer customer, Pageable pageable){
+    public List<OrderDto> getAllOrders(Long customer, Pageable pageable){
         return orderHeaderService.getAllOrders(customer,pageable);
     }
 }

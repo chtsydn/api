@@ -23,8 +23,8 @@ public class StockController {
     @PostMapping("/updateStock")
     public ResponseEntity<?> updateStock(@RequestBody Trade trade){
         try{
-            if (trade.getQuantity()<0)
-                throw new IllegalArgumentException("The quantity cannot be less than zero.");
+            if (trade.getQuantity()<=0)
+                throw new IllegalArgumentException("The quantity cannot be less or equal than zero.");
             return ResponseEntity.ok().body(stockService.updateStock(trade));
         }catch (IllegalArgumentException e){
             return ResponseEntity.badRequest().body(e.getMessage());
