@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderHeaderService {
@@ -30,8 +32,13 @@ public class OrderHeaderService {
     }
 
     public List<OrderDto> getAllOrders(Long customer, Pageable pageable){
-        List<OrderHeader> orderHeaders = orderHeaderRepository.findAllByCustomer_id(customer,pageable);
-        return orderHeaders.stream().map(OrderDto::new).toList();
+        List<OrderHeader> orderHeaders = orderHeaderRepository.findAllByCustomerId(customer,pageable);
+        return orderHeaders.stream().map(OrderDto::new).collect(Collectors.toList());
+    }
+
+    public List<OrderDto> getAllOrdersByDate(Long customerId, Date firstDate,Date lastDate,Pageable pageable){
+        List<OrderHeader> orderHeaders = orderHeaderRepository.findAllByCustomerIdWithDateInterval(customerId,firstDate,lastDate,pageable);
+        return orderHeaders.stream().map(OrderDto::new).collect(Collectors.toList());
     }
 
     public OrderDto getOrderById(Long orderId){

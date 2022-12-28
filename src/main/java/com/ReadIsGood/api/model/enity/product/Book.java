@@ -15,7 +15,6 @@ import java.util.Objects;
 public class Book extends Product{
     private String author;
     private String isbn;
-    private ProductType productType;
     private BookCategory bookCategory;
 
     @Override

@@ -3,6 +3,7 @@ package com.ReadIsGood.api.service.order;
 import com.ReadIsGood.api.model.enity.order.Trade;
 import com.ReadIsGood.api.model.enity.order.TradeType;
 import com.ReadIsGood.api.model.enity.order.Stock;
+import com.ReadIsGood.api.model.enity.product.ProductType;
 import com.ReadIsGood.api.model.repository.order.StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,5 +43,11 @@ public class StockService {
             newStock.setQuantity(trade.getQuantity());
             return stockRepository.save(newStock);
         }
+    }
+
+    public Stock getStock(Long id, ProductType productType){
+        Optional<Stock> stock = stockRepository.findStockByProductIdAndProductType(id,productType);
+        if (stock.isEmpty())throw new IllegalArgumentException("No stock for this product.");
+        return stock.get();
     }
 }

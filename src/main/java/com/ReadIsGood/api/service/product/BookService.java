@@ -24,4 +24,10 @@ public class BookService {
         }
         return bookRepository.save(book);
     }
+
+    public Book getBookById(Long id){
+        Optional<Book> book = bookRepository.findById(id);
+        if (book.isPresent())return book.get();
+        throw new IllegalArgumentException("Book does not exist.");
+    }
 }
