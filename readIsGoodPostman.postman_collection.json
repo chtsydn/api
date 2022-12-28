@@ -1,0 +1,315 @@
+{
+	"info": {
+		"_postman_id": "d245481a-ee9c-4963-bae4-46d00bc46007",
+		"name": "readIsGoodPostman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18649504"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/api/customer/getCustomerInfo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaHRzeWRuQGdtYWlsLmNvbSIsImlhdCI6MTY3MjE3OTE0OSwiZXhwIjoxNjcyMjY1NTQ5fQ.g9ob-qyJHBYGfI8talei5ldfltFhOpofk_W2yGES8_c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/customer/getCustomerInfo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customer",
+						"getCustomerInfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/customer/createCustomer",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"cihat\",\r\n    \"surname\":\"soydan\",\r\n    \"age\":29,\r\n    \"email\":\"chtsydn@gmail.com\",\r\n    \"password\":\"1234\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/customer/createCustomer",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customer",
+						"createCustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"chtsydn@gmail.com\",\r\n    \"password\":\"1234\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/customer/getAllOrders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaHRzeWRuQGdtYWlsLmNvbSIsImlhdCI6MTY3MjE3OTE0OSwiZXhwIjoxNjcyMjY1NTQ5fQ.g9ob-qyJHBYGfI8talei5ldfltFhOpofk_W2yGES8_c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/customer/getAllOrders?page=0&size=5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customer",
+						"getAllOrders"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/book/addNewBook",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaHRzeWRuQGdtYWlsLmNvbSIsImlhdCI6MTY3MjE3OTE0OSwiZXhwIjoxNjcyMjY1NTQ5fQ.g9ob-qyJHBYGfI8talei5ldfltFhOpofk_W2yGES8_c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"su şişesi çılgınlığı\",\r\n    \"amount\":13.90,\r\n    \"author\":\"Cihat Soydan\",\r\n    \"isbn\":\"978-3-16-148410-0\",\r\n    \"productType\":\"BOOK\",\r\n    \"bookCategory\":\"COMICS\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/book/addNewBook",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"book",
+						"addNewBook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/order/createOrder",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaHRzeWRuQGdtYWlsLmNvbSIsImlhdCI6MTY3MjE4MDM2MCwiZXhwIjoxNjcyMjY2NzYwfQ.APRc2kEa1Tf-kyVsLtiLzWGo59m1NW1NYZrRjBcR7_s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer_id\":1,\r\n    \"order_time\":\"2022-12-28 01:53:36\",\r\n    \"order_amount\":157.85,\r\n    \"order_note\":\"Please fast\",\r\n    \"order_status\":\"WAITING\",\r\n    \"orderLines\":[\r\n        {\r\n            \"productType\":\"BOOK\",\r\n            \"productId\":1,\r\n            \"currentUnitPrice\":157.85,\r\n            \"quantity\":1\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/order/createOrder",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"order",
+						"createOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/stock/updateStock",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaHRzeWRuQGdtYWlsLmNvbSIsImlhdCI6MTY3MjE4MDM2MCwiZXhwIjoxNjcyMjY2NzYwfQ.APRc2kEa1Tf-kyVsLtiLzWGo59m1NW1NYZrRjBcR7_s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tradeType\":\"IN\",\r\n    \"productId\":1,\r\n    \"productType\":\"BOOK\",\r\n    \"quantity\":3\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/stock/updateStock",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"stock",
+						"updateStock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/order/getOrder?id=5",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaHRzeWRuQGdtYWlsLmNvbSIsImlhdCI6MTY3MjE4MDM2MCwiZXhwIjoxNjcyMjY2NzYwfQ.APRc2kEa1Tf-kyVsLtiLzWGo59m1NW1NYZrRjBcR7_s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/order/getOrder?id=5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"order",
+						"getOrder"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
