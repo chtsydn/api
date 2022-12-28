@@ -5,6 +5,7 @@ import com.ReadIsGood.api.model.enity.order.OrderLine;
 import com.ReadIsGood.api.model.enity.order.OrderLineDto;
 import com.ReadIsGood.api.model.enity.order.Trade;
 import com.ReadIsGood.api.model.enity.product.Book;
+import com.ReadIsGood.api.model.repository.order.OrderHeaderRepository;
 import com.ReadIsGood.api.model.repository.order.OrderLineRepository;
 import com.ReadIsGood.api.service.product.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,11 +25,14 @@ public class OrderLineService {
     private final OrderLineRepository orderLineRepository;
     @Autowired
     private final BookService bookService;
+    private final OrderHeaderRepository orderHeaderRepository;
 
-    public OrderLineService(StockService stockService, OrderLineRepository orderLineRepository, BookService bookService) {
+    public OrderLineService(StockService stockService, OrderLineRepository orderLineRepository, BookService bookService,
+                            OrderHeaderRepository orderHeaderRepository) {
         this.stockService = stockService;
         this.orderLineRepository = orderLineRepository;
         this.bookService = bookService;
+        this.orderHeaderRepository = orderHeaderRepository;
     }
 
     public void setOrderLinesToStock(List<OrderLine> orderLines){

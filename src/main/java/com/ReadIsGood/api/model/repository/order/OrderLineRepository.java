@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface OrderLineRepository extends JpaRepository<OrderLine,Long> {
-    @Query("select o from OrderLine o where o.orderHeader = ?1")
+    @Query(value = "select * from order_line o where o.order_header_id = ?1", nativeQuery = true)
     List<OrderLine> findAllByOrderHeader(Long id);
 }
