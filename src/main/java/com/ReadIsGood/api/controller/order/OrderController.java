@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @RestController
@@ -54,11 +56,10 @@ public class OrderController {
     }
 
     @PostMapping("/getOrdersByDate")
-    public ResponseEntity<?> getOrdersByDate(@RequestBody String jsonString, Authentication token, Pageable pageable){
+    public ResponseEntity<?> getOrdersByDate(@RequestParam("firstDate") String firstString, @RequestParam("lastDate") String lastString, Authentication token, Pageable pageable) throws ParseException {
         Customer customer = customerService.getCustomerInfo(token.getName());
-        Date firstDate = new Date();
-        Date lastDate = new Date();
-
+        Date firstDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(firstString);
+        Date lastDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(lastString);
         return ResponseEntity.ok().body(orderHeaderService.getAllOrdersByDate(customer.getId(),firstDate,lastDate,pageable));
     }
 }

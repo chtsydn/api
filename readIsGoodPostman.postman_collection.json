@@ -310,6 +310,150 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "localhost:8080/api/stock/getStokByIdAndType?id=1&type=BOOK",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaHRzeWRuQGdtYWlsLmNvbSIsImlhdCI6MTY3MjI1MTcyOCwiZXhwIjoxNjcyMzM4MTI4fQ.U56cvHl3z958TPVfCLhEKb1nve4j6BL0NH9MDWFGPgk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/stock/getStokByIdAndType?id=1&type=BOOK",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"stock",
+						"getStokByIdAndType"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						},
+						{
+							"key": "type",
+							"value": "BOOK"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/order/getOrderDetails?id=2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaHRzeWRuQGdtYWlsLmNvbSIsImlhdCI6MTY3MjI1MTcyOCwiZXhwIjoxNjcyMzM4MTI4fQ.U56cvHl3z958TPVfCLhEKb1nve4j6BL0NH9MDWFGPgk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/order/getOrderDetails?id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"order",
+						"getOrderDetails"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/order/getOrdersByDate",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaHRzeWRuQGdtYWlsLmNvbSIsImlhdCI6MTY3MjI1MTcyOCwiZXhwIjoxNjcyMzM4MTI4fQ.U56cvHl3z958TPVfCLhEKb1nve4j6BL0NH9MDWFGPgk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/api/order/getOrdersByDate?page=1&size=5&firstDate=2022-11-22 12:13:14&lastDate=2022-12-28 12:13:14",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"order",
+						"getOrdersByDate"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						},
+						{
+							"key": "firstDate",
+							"value": "2022-11-22 12:13:14"
+						},
+						{
+							"key": "lastDate",
+							"value": "2022-12-28 12:13:14"
+						},
+						{
+							"key": null,
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
