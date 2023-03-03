@@ -90,21 +90,35 @@ What should be installed on your computer before running the project.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-The project consists of a book class containing the book processes, a user class containing user processes, and a borrowing class containing borrowing processes.
+The project consists of a book class that includes book processes, a customer class containing customer processes, a stock class containing stock processes, and an order class that includes order processes.
+
+Customer Class:
+
+1- Get customer info
+
+2- Create customer
+
+3- Get customer's all orders
 
 Book Class:
-1- Adding books
-2- Removing books
-3- View books
 
-Borrower Class:
-1- Adding borrower
-2- Removing borrower
-3- View borrower
+1- Adding book
 
-Borrow Class:
-1- Lend the book
-2- Take back the borrowed book
+Stock Class:
+
+1- Update stock
+
+2- Get stock info 
+
+Order Class:
+
+1- Create order
+
+2- Get order
+
+3- Get detailed order
+
+4- Get order list by date
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
